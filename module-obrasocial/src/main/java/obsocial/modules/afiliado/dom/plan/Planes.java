@@ -1,4 +1,4 @@
-package petclinic.modules.pets.dom.petowner;
+package obsocial.modules.afiliado.dom.plan;
 
 import java.util.List;
 
@@ -21,59 +21,59 @@ import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
 import lombok.RequiredArgsConstructor;
 
-import petclinic.modules.pets.types.FirstName;
-import petclinic.modules.pets.types.LastName;
+import obsocial.modules.afiliado.types.Apellido;
+import obsocial.modules.afiliado.types.Nombre;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        logicalTypeName = "pets.PetOwners"
+        logicalTypeName = "afiliados.Planes"
 )
 @Priority(PriorityPrecedence.EARLY)
 @RequiredArgsConstructor(onConstructor_ = {@Inject} )
-public class PetOwners {
+public class Planes {
 
     final RepositoryService repositoryService;
     final JpaSupportService jpaSupportService;
-    final PetOwnerRepository petOwnerRepository;
+    final PlanRepository planRepository;
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
-    public PetOwner create(
-            @LastName final String lastName,
-            @FirstName final String firstName) {
-        return repositoryService.persist(PetOwner.withName(lastName, firstName));
+    public Plan create(
+            @Apellido final String apellido,
+            @nombre final String nombre) {
+        return repositoryService.persist(Plan.withName(apellido, nombre));
     }
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
-    public List<PetOwner> findByLastNameLike(
-            @LastName final String lastName) {
+    public List<Plan> findByApellidoLike(
+            @Apellido final String apellido) {
         return repositoryService.allMatches(
-                Query.named(PetOwner.class, PetOwner.NAMED_QUERY__FIND_BY_LAST_NAME_LIKE)
-                     .withParameter("lastName", "%" + lastName + "%"));
+                Query.named(Plan.class, Plan.NAMED_QUERY__FIND_BY_APELLIDO_LIKE)
+                     .withParameter("apellido", "%" + apellido + "%"));
     }
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<PetOwner> findByLastName(
-            @LastName final String lastName
+    public List<Plan> findByApellido(
+            @Apellido final String apellido
             ) {
-        return petOwnerRepository.findByLastNameContaining(lastName);
+        return planRepository.findByApellidoContaining(apellido);
     }
 
 
     @Programmatic
-    public PetOwner findByLastNameExact(final String lastName) {
-        return petOwnerRepository.findByLastName(lastName);
+    public Plan findByApellidoExact(final String apellido) {
+        return planRepository.findByApellido(apellido);
     }
 
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<PetOwner> listAll() {
-        return petOwnerRepository.findAll();
+    public List<Plan> listAll() {
+        return planRepository.findAll();
     }
 
 
@@ -81,11 +81,11 @@ public class PetOwners {
 
     @Programmatic
     public void ping() {
-        jpaSupportService.getEntityManager(PetOwner.class)
+        jpaSupportService.getEntityManager(Plan.class)
             .ifSuccess(entityManager -> {
-                final TypedQuery<PetOwner> q = entityManager.createQuery(
-                        "SELECT p FROM PetOwner p ORDER BY p.lastName",
-                        PetOwner.class)
+                final TypedQuery<Plan> q = entityManager.createQuery(
+                        "SELECT p FROM Plan p ORDER BY p.apellido",
+                        Plan.class)
                     .setMaxResults(1);
                 q.getResultList();
             });

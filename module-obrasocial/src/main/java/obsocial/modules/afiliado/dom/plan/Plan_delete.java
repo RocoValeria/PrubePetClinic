@@ -1,4 +1,4 @@
-package petclinic.modules.pets.dom.petowner;
+package obsocial.modules.afiliado.dom.plan;
 
 import javax.inject.Inject;
 
@@ -12,23 +12,23 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import lombok.RequiredArgsConstructor;
 
 @Action(
-        domainEvent = PetOwner_delete.ActionEvent.class,
+        domainEvent = Plan_delete.ActionEvent.class,
         semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE,
         commandPublishing = Publishing.ENABLED,
         executionPublishing = Publishing.ENABLED
 )
 @ActionLayout(
-        associateWith = "name", position = ActionLayout.Position.PANEL,
-        describedAs = "Deletes this object from the persistent datastore")
+        associateWith = "nombre", position = ActionLayout.Position.PANEL,
+        describedAs = "elimina este objeto del almacen de datos persistente")
 @RequiredArgsConstructor
-public class PetOwner_delete {
+public class Plan_delete {
 
-    public static class ActionEvent extends ActionDomainEvent<PetOwner_delete>{}
+    public static class ActionEvent extends ActionDomainEvent<Plan_delete>{}
 
-    private final PetOwner petOwner;
+    private final Plan plan;
 
     public void act() {
-        repositoryService.remove(petOwner);
+        repositoryService.remove(plan);
         return;
     }
 

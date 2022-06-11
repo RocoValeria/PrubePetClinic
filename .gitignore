@@ -1,6 +1,6 @@
 *~
 *.swp
-*.class
+
 bin/
 target/
 target-ide/

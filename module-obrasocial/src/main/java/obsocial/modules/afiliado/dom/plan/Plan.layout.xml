@@ -12,7 +12,7 @@
                 <bs3:tab name="General">
                     <bs3:row>
                         <bs3:col span="12">
-                            <c:fieldSet id="name" name="Name"/>
+                            <c:fieldSet id="nombre" name="Nombre"/>
                         </bs3:col>
                     </bs3:row>
                 </bs3:tab>
@@ -23,23 +23,23 @@
                         </bs3:col>
                     </bs3:row>
                 </bs3:tab>
-                <bs3:tab name="Other">
+                <bs3:tab name="Otro">
                     <bs3:row>
                         <bs3:col span="12">
-                            <c:fieldSet id="other" unreferencedProperties="true"/>
+                            <c:fieldSet id="otro" unreferencedProperties="true"/>
                         </bs3:col>
                     </bs3:row>
                 </bs3:tab>
             </bs3:tabGroup>
-            <c:fieldSet id="contactDetails" name="Contact Details"/>
-            <c:fieldSet id="notes" name="Notes"/>
+            <c:fieldSet id="datosdecontacto" name="Datos de Contacto"/>
+            <c:fieldSet id="notas" name="Notas"/>
         </bs3:col>
         <bs3:col span="6">
             <bs3:tabGroup  unreferencedCollections="true" collapseIfOne="false">
-                <bs3:tab name="Pets">                   <!--.-->
+                <bs3:tab name="Afiliados">                   <!--.-->
                     <bs3:row>
                         <bs3:col span="12">
-                            <c:collection id="pets"/>
+                            <c:collection id="afiliados"/>
                         </bs3:col>
                     </bs3:row>
                 </bs3:tab>

@@ -49,10 +49,10 @@ import petclinic.modules.pets.types.PhoneNumber;
 
 @Entity
 @Table(
-    schema="pets",
-    name = "PetOwner",
+    schema="afiliados",
+    name = "Plan",
     uniqueConstraints = {
-        @UniqueConstraint(name = "PetOwner__lastName__UNQ", columnNames = {"lastName"})
+        @UniqueConstraint(name = "Plan__nombre__UNQ", columnNames = {"lastName"})
     }
 )
 @NamedQueries({
