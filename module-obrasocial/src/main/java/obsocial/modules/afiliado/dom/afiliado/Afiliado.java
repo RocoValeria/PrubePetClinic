@@ -1,4 +1,4 @@
-package petclinic.modules.Afiliados.dom.afiliados;
+package obsocial.modules.Afiliados.dom.afiliado;
 
 import java.util.Comparator;
 
@@ -31,10 +31,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.pets.types.FirstName;
-import petclinic.modules.pets.types.Notes;
-import petclinic.modules.pets.types.PetName;
+import obsocial.modules.afiliado.dom.plan.Plan;
+import obsocial.modules.afiliado.types.Apellido;
+import obscocial.modules.afiliado.types.Notas;
+import obsiocial.modules.afiliado.types.Plan;
 
 
 @Entity
@@ -51,7 +51,7 @@ import petclinic.modules.pets.types.PetName;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Afiliado implements Comparable<Pet> {
+public class Afiliado implements Comparable<Afiliado> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -88,8 +88,8 @@ public class Afiliado implements Comparable<Pet> {
     @Getter @Setter
     private Plan plan;
 
-    @AfiliadoNombre
-    @Column(name = "nombre", length = FirstName.MAX_LEN, nullable = false)
+    @Plan
+    @Column(name = "nombre", length = Plan.MAX_LEN, nullable = false)
     @Getter @Setter
     @PropertyLayout(fieldSetId = "nombre", sequence = "2")
     private String nombre;

@@ -1,4 +1,4 @@
-package petclinic.modules.pets.types;
+package obsocial.modules.afiliado.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,7 +14,7 @@ import org.apache.isis.applib.annotation.Property;
 @Parameter(maxLength = PetName.MAX_LEN, optionality = Optionality.MANDATORY)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PetName {
+public @interface Plan {
 
     int MAX_LEN = 60;
 }
