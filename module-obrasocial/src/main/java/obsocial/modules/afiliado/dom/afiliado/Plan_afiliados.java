@@ -1,4 +1,4 @@
-package petclinic.modules.pets.dom.pet;
+package obsocial.modules.afiliado.dom.afiliado;
 
 import java.util.List;
 
@@ -9,20 +9,20 @@ import org.apache.isis.applib.annotation.CollectionLayout;
 
 import lombok.RequiredArgsConstructor;
 
-import petclinic.modules.pets.dom.pet.Pet;
-import petclinic.modules.pets.dom.pet.PetRepository;
-import petclinic.modules.pets.dom.petowner.PetOwner;
+import obsocial.modules.afiliado.dom.afiliado.Afiliado;
+import obsocial.modules.afiliado.dom.afiliado.AfiliadoRepository;
+import obsocial.modules.afiliado.dom.plan.Planr;
 
 @Collection
 @CollectionLayout(defaultView = "table")
 @RequiredArgsConstructor
-public class PetOwner_pets {
+public class Plan_afiliados {
 
-    private final PetOwner petOwner;
+    private final Plan plan;
 
-    public List<Pet> coll() {
-        return petRepository.findByPetOwner(petOwner);
+    public List<Afiliados> coll() {
+        return afiliadoRepository.findByPlan(afiliado);
     }
 
-    @Inject PetRepository petRepository;
+    @Inject AfiliadoRepository afiliadoRepository;
 }

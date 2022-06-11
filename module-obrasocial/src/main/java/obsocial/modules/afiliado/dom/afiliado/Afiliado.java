@@ -67,7 +67,7 @@ public class Afiliado implements Comparable<Afiliado> {
     private long version;
 
 
-    Afiliado(Plan plan, String name, TipoPlan tipoPlan) {
+    Afiliado(Plan plan, String nombre, TipoPlan tipoPlan) {
         this.plan = plan;
         this.nombre = nombre;
         this.tipoPlan = tipoPlan;
@@ -97,7 +97,7 @@ public class Afiliado implements Comparable<Afiliado> {
     @Enumerated(EnumType.STRING)
     @Column(nombre = "TipoPlan", nullable = false)
     @Getter @Setter
-    @PropertyLayout(fieldSetId = "details", sequence = "1")
+    @PropertyLayout(fieldSetId = "detalles", sequence = "1")
     private TipoPlan tipoPlan;
 
     @Notas

@@ -1,4 +1,4 @@
-package petclinic.modules.pets.dom.pet;
+package obsocial.modules.afiliado.dom.afiliado;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,41 +13,41 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 
 import lombok.RequiredArgsConstructor;
 
-import petclinic.modules.pets.dom.pet.Pet;
-import petclinic.modules.pets.dom.pet.PetRepository;
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.pets.types.PetName;
+import obsocial.modules.afiliado.dom.afiliado.Afiliado;
+import obsocial.modules.afiliado.dom.afiliado.AfiliadoRepository;
+import obsocial.modules.afiliado.dom.plan.Plan;
+import obsocial.modules.afiliado.types.Plan;
 
 @Action(
         semantics = SemanticsOf.IDEMPOTENT,
         commandPublishing = Publishing.ENABLED,
         executionPublishing = Publishing.ENABLED
 )
-@ActionLayout(associateWith = "pets", sequence = "2")
+@ActionLayout(associateWith = "afiliados", sequence = "2")
 @RequiredArgsConstructor
-public class PetOwner_removePet {
+public class Plan_removeAfiliado {
 
-    private final PetOwner petOwner;
+    private final Plan plan;
 
-    public PetOwner act(@PetName final String name) {
-        petRepository.findByPetOwnerAndName(petOwner, name)
-                .ifPresent(pet -> repositoryService.remove(pet));
-        return petOwner;
+    public Plan act(@Plan final String nombre) {
+        afiliadoRepository.findByPlanAndName(plan, nombre)
+                .ifPresent(afiliado -> repositoryService.remove(afiliado));
+        return plan;
     }
     public String disableAct() {
-        return petRepository.findByPetOwner(petOwner).isEmpty() ? "No pets" : null;
+        return afiliadoRepository.findByPlan(plan).isEmpty() ? "No existe" : null;
     }
     public List<String> choices0Act() {
-        return petRepository.findByPetOwner(petOwner)
+        return afiliadoRepository.findByPlan(plan)
                 .stream()
-                .map(Pet::getName)
+                .map(Afiliaado::getName)
                 .collect(Collectors.toList());
     }
     public String default0Act() {
-        List<String> names = choices0Act();
-        return names.size() == 1 ? names.get(0) : null;
+        List<String> nombres = choices0Act();
+        return nombres.size() == 1 ? nombres.get(0) : null;
     }
 
-    @Inject PetRepository petRepository;
+    @Inject AfiliadoRepository afiliadoRepository;
     @Inject RepositoryService repositoryService;
 }
