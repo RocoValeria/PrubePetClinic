@@ -1,4 +1,4 @@
-package petclinic.modules.pets.dom.pet;
+package petclinic.modules.Afiliados.dom.afiliados;
 
 import java.util.Comparator;
 
@@ -39,19 +39,19 @@ import petclinic.modules.pets.types.PetName;
 
 @Entity
 @Table(
-    schema="pets",
-    name = "Pet",
+    schema="afiliados",
+    name = "afiliado",
     uniqueConstraints = {
-        @UniqueConstraint(name = "Pet__owner_name__UNQ", columnNames = {"owner_id", "name"})
+        @UniqueConstraint(name = "Afiliado__plan_nombre__UNQ", columnNames = {"plan_id", "nombre"})
     }
 )
 @EntityListeners(IsisEntityListener.class)
-@DomainObject(logicalTypeName = "pets.Pet", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "afiliados.Afiliado", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Pet implements Comparable<Pet> {
+public class Afiliado implements Comparable<Pet> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -67,52 +67,52 @@ public class Pet implements Comparable<Pet> {
     private long version;
 
 
-    Pet(PetOwner petOwner, String name, PetSpecies petSpecies) {
-        this.petOwner = petOwner;
-        this.name = name;
-        this.petSpecies = petSpecies;
+    Afiliado(Plan plan, String name, TipoPlan tipoPlan) {
+        this.plan = plan;
+        this.nombre = nombre;
+        this.tipoPlan = tipoPlan;
     }
 
 
     public String title() {
-        return getName() + " " + getPetOwner().getLastName();
+        return getNombre() + " " + getPlan().getLastNombre();
     }
 
     public String iconName() {
-        return getPetSpecies().name().toLowerCase();
+        return getTipoPlan().nombre().toLowerCase();
     }
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "owner_id")
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    @JoinColumn(name = "plan_id")
+    @PropertyLayout(fieldSetId = "nombre", sequence = "1")
     @Getter @Setter
-    private PetOwner petOwner;
+    private Plan plan;
 
-    @PetName
-    @Column(name = "name", length = FirstName.MAX_LEN, nullable = false)
+    @AfiliadoNombre
+    @Column(name = "nombre", length = FirstName.MAX_LEN, nullable = false)
     @Getter @Setter
-    @PropertyLayout(fieldSetId = "name", sequence = "2")
-    private String name;
+    @PropertyLayout(fieldSetId = "nombre", sequence = "2")
+    private String nombre;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "petSpecies", nullable = false)
+    @Column(nombre = "TipoPlan", nullable = false)
     @Getter @Setter
     @PropertyLayout(fieldSetId = "details", sequence = "1")
-    private PetSpecies petSpecies;
+    private TipoPlan tipoPlan;
 
-    @Notes
-    @Column(name = "notes", length = Notes.MAX_LEN, nullable = true)
+    @Notas
+    @Column(nombre = "notas", length = Notes.MAX_LEN, nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "notes", sequence = "1")
-    private String notes;
+    @PropertyLayout(fieldSetId = "notas", sequence = "1")
+    private String notas;
 
 
-    private final static Comparator<Pet> comparator =
-            Comparator.comparing(Pet::getPetOwner).thenComparing(Pet::getName);
+    private final static Comparator<Afiliado> comparator =
+            Comparator.comparing(Afiliado::getPlan).thenComparing(Afiliado::getNombre);
 
     @Override
-    public int compareTo(final Pet other) {
+    public int compareTo(final Afiliado other) {
         return comparator.compare(this, other);
     }
 
