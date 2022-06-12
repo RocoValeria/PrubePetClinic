@@ -47,14 +47,14 @@ import obsocial.modules.asignar.types.Reason;
 
 @Entity
 @Table(
-    schema="asignar",
+    schema="mostrar",
     name = "Asignar",
     uniqueConstraints = {
         @UniqueConstraint(name = "Asignar__afiliado_asignarAt__UNQ", columnNames = {"plan_id", "name"})
     }
 )
 @EntityListeners(IsisEntityListener.class)
-@DomainObject(logicalTypeName = "asignar.Asignar", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "mostrar.Asignar", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)

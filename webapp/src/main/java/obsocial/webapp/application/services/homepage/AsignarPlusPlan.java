@@ -1,4 +1,4 @@
-package petclinic.webapp.application.services.homepage;
+package obsocial.webapp.application.services.homepage;
 
 import java.time.LocalDateTime;
 
@@ -17,32 +17,32 @@ import org.apache.isis.applib.annotation.Where;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import petclinic.modules.pets.dom.pet.Pet;
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.visits.dom.visit.Visit;
+import obsocial.modules.afiliados.dom.afiliado.Afiliado;
+import obsocial.modules.afiliados.dom.petowner.Plan;
+import obsocial.modules.asignar.dom.asignar.Asignar;
 
-@DomainObject(nature=Nature.VIEW_MODEL, logicalTypeName = "petclinic.VisitPlusPetOwner")
-@DomainObjectLayout(named = "Visit")
+@DomainObject(nature=Nature.VIEW_MODEL, logicalTypeName = "obsocial.AsignarPlusPlan")
+@DomainObjectLayout(named = "Asignar")
 @XmlRootElement
 @NoArgsConstructor
 @XmlType
 @XmlAccessorType(XmlAccessType.FIELD)
-public class VisitPlusPetOwner {
+public class AsignarPlusPlan {
 
     @Property(
             projecting = Projecting.PROJECTED,
             hidden = Where.EVERYWHERE
     )
     @Getter
-    private Visit visit;
+    private Asignar asignar;
 
-    VisitPlusPetOwner(Visit visit) {this.visit = visit;}
+    AsignarPlusPlan(Asignar asignar) {this.asignar = asignar;}
 
-    public Pet getPet() {return visit.getPet();}
-    public String getReason() {return visit.getReason();}
-    public LocalDateTime getVisitAt() {return visit.getVisitAt();}
+    public Afiliado getAfiliado() {return asignar.getAfiliado();}
+    public String getReason() {return asignar.getReason();}
+    public LocalDateTime getAsignarAt() {return asignar.getAsignarAt();}
 
-    public PetOwner getPetOwner() {
-        return getPet().getPetOwner();
+    public Plan getPlan() {
+        return getAfiliado().getPlan();
     }
 }
