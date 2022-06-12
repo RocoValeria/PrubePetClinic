@@ -5,16 +5,21 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.apache.isis.applib.annotation.Optionality;
+import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
+import org.apache.isis.applib.annotation.PropertyLayout;
+import org.apache.isis.applib.annotation.Where;
 
-@Property(maxLength = PetName.MAX_LEN, optionality = Optionality.MANDATORY)
-@Parameter(maxLength = PetName.MAX_LEN, optionality = Optionality.MANDATORY)
+@Property(editing = Editing.ENABLED, maxLength = Notes.MAX_LEN)
+@PropertyLayout(named = "Notas", multiLine = 10, hidden = Where.ALL_TABLES)
+@Parameter(maxLength = Notes.MAX_LEN)
+@ParameterLayout(named = "Notas", multiLine = 10)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Plan {
+public @interface Notas {
 
-    int MAX_LEN = 60;
+    int MAX_LEN = 4000;
+
 }

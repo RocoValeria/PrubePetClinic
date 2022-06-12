@@ -1,4 +1,4 @@
-package petclinic.modules.pets.types;
+package obsocial.modules.afiliado.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,17 +14,17 @@ import org.apache.isis.applib.annotation.PropertyLayout;
 
 @Property(
         editing = Editing.ENABLED,
-        maxLength = PhoneNumber.MAX_LEN,
+        maxLength = EmailAddress.MAX_LEN,
         optionality = Optionality.OPTIONAL,
-        regexPattern = "[+]?[0-9 ]+",
-        regexPatternReplacement =
-                "Specify only numbers and spaces, optionally prefixed with '+'.  " +
-                        "For example, '+353 1 555 1234', or '07123 456789'"
+        regexPattern = "[^@]+@[^@]+[.][^@]+",  // should really use https://emailregex.com/
+        regexPatternReplacement = "Invalid email address"
 )
-@Parameter(maxLength = PhoneNumber.MAX_LEN, optionality = Optionality.OPTIONAL)
+@PropertyLayout(named = "E-mail")
+@Parameter(maxLength = Email.MAX_LEN, optionality = Optionality.OPTIONAL)
+@ParameterLayout(named = "E-mail")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PhoneNumber {
+public @interface Email {
 
-    int MAX_LEN = 30;
+    int MAX_LEN = 100;
 }

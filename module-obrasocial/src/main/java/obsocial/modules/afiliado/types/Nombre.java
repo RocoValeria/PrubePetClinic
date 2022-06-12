@@ -1,4 +1,4 @@
-package petclinic.modules.pets.types;
+package obsocial.modules.afiliado.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,10 +12,10 @@ import org.apache.isis.applib.annotation.Property;
 
 @Property(maxLength = FirstName.MAX_LEN, optionality = Optionality.OPTIONAL)
 @Parameter(maxLength = FirstName.MAX_LEN, optionality = Optionality.OPTIONAL)
-@ParameterLayout(named = "First Name")
+@ParameterLayout(named = "Nombre")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FirstName {
+public @interface Nombre {
 
     int MAX_LEN = 40;
 }
