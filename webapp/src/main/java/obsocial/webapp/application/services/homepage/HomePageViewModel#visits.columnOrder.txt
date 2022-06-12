@@ -1,4 +1,4 @@
-petOwner
-pet
-visitAt
+plan
+afiliado
+asignarAt
 

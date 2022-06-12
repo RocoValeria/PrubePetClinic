@@ -1,4 +1,4 @@
 isis:
   testing:
     fixtures:
-      initial-script: petclinic.webapp.application.fixture.scenarios.PetClinicDemo
+      initial-script: obsocial.webapp.application.fixture.scenarios.ObsocialDemo

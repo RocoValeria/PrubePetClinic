@@ -1,4 +1,4 @@
-package petclinic.webapp.application.services.homepage;
+package obsocial.webapp.application.services.homepage;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,38 +10,38 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.HomePage;
 import org.apache.isis.applib.annotation.Nature;
 
-import petclinic.modules.pets.dom.pet.Pet;
-import petclinic.modules.pets.dom.pet.PetRepository;
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.pets.dom.petowner.PetOwnerRepository;
-import petclinic.modules.visits.dom.visit.VisitRepository;
+import obsocial.modules.afiliado.dom.afiliado.Afiliado;
+import obsocial.modules.afiliado.dom.Afiliado.AfiliadoRepository;
+import obsocial.modules.afiliado.dom.plan.Plan;
+import obsocial.modules.afiliado.dom.plan.PlanRepository;
+import obsocial.modules.asignar.dom.asignar.AsignarRepository;
 
 @DomainObject(
         nature = Nature.VIEW_MODEL,
-        logicalTypeName = "petclinic.HomePageViewModel"
+        logicalTypeName = "obsocial.HomePageViewModel"
         )
 @HomePage
 @DomainObjectLayout()
 public class HomePageViewModel {
 
     public String title() {
-        return getPetOwners().size() + " owners";
+        return  " plan" + getPlan().size();
     }
 
-    public List<PetOwner> getPetOwners() {
-        return petOwnerRepository.findAll();
+    public List<Plan> getPlan() {
+        return planRepository.findAll();
     }
-    public List<Pet> getPets() {
-        return petRepository.findAll();
+    public List<Afiliado> getAfiliados() {
+        return afiliadoRepository.findAll();
     }
-    public List<VisitPlusPetOwner> getVisits() {
-        return visitRepository.findAll()
+    public List<AsignarPlusPlan> getMostrar() {
+        return asignarRepository.findAll()
                 .stream()
-                .map(VisitPlusPetOwner::new)
+                .map(AsignarPlusPlan::new)
                 .collect(Collectors.toList());
     }
 
-    @Inject PetOwnerRepository petOwnerRepository;
-    @Inject PetRepository petRepository;
-    @Inject VisitRepository visitRepository;
+    @Inject PlanRepository planRepository;
+    @Inject AfiliadoRepository afiliadoRepository;
+    @Inject AsignarRepository asignarRepository;
 }

@@ -1,4 +1,4 @@
-package petclinic.webapp;
+package obsocial.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,7 @@ import org.apache.isis.core.config.presets.IsisPresets;
     AppManifest.class
 //    , XrayEnable.class
 })
-public class PetClinicApp extends SpringBootServletInitializer {
+public class ObsocialApp extends SpringBootServletInitializer {
 
     /**
      * @implNote this is to support the <em>Spring Boot Maven Plugin</em>, which auto-detects an
@@ -20,7 +20,7 @@ public class PetClinicApp extends SpringBootServletInitializer {
      */
     public static void main(String[] args) {
         IsisPresets.prototyping();
-        SpringApplication.run(new Class[] { PetClinicApp.class }, args);
+        SpringApplication.run(new Class[] { ObsocialApp.class }, args);
     }
 
 }

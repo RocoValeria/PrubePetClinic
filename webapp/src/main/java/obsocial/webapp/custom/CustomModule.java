@@ -1,4 +1,4 @@
-package petclinic.webapp.custom;
+package obsocial.webapp.custom;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

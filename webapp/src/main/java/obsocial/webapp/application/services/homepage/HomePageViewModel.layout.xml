@@ -5,7 +5,7 @@
             <bs3:row>
                 <bs3:col span="12" unreferencedActions="true">
                     <domainObject/>
-                    <action id="bookVisit"/>
+                    <action id="bookMostrar"/>
                     <action id="clearHints" hidden="EVERYWHERE"/>
                     <action id="impersonate" hidden="EVERYWHERE"/>
                     <action id="impersonateWithRoles" hidden="EVERYWHERE"/>
@@ -23,13 +23,13 @@
         <bs3:col span="12" unreferencedCollections="true">
             <bs3:row>
                 <bs3:col span="4">
-                    <collection id="petOwners" defaultView="table"/>
+                    <collection id="planes" defaultView="table"/>
                 </bs3:col>
                 <bs3:col span="4">
-                    <collection id="pets" defaultView="table"/>
+                    <collection id="afiliados" defaultView="table"/>
                 </bs3:col>
                 <bs3:col span="4">
-                    <collection id="visits" defaultView="table"/>
+                    <collection id="mostrar" defaultView="table"/>
                 </bs3:col>
             </bs3:row>
         </bs3:col>

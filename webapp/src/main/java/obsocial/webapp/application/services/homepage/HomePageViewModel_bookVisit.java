@@ -1,4 +1,4 @@
-package petclinic.webapp.application.services.homepage;
+package obsocial.webapp.application.services.homepage;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -12,40 +12,40 @@ import org.apache.isis.applib.services.wrapper.WrapperFactory;
 
 import lombok.RequiredArgsConstructor;
 
-import petclinic.modules.pets.dom.pet.Pet;
-import petclinic.modules.pets.dom.pet.PetRepository;
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.pets.dom.petowner.PetOwnerRepository;
-import petclinic.modules.visits.contributions.pet.Pet_bookVisit;
-import petclinic.modules.visits.dom.visit.Visit;
+import obsocial.modules.afiliados.dom.afiliado.Pet;
+import obsocial.modules.afiliados.dom.afiliado.AfiliadoRepository;
+import obsocial.modules.afiliados.dom.plan.Plan;
+import obsocial.modules.afiliados.dom.plan.PlanRepository;
+import obsocial.modules.asignar.contributions.afiliado.Afiliado_bookVisit;
+import obsocial.modules.asignar.dom.asignar.Asignar;
 
 @Action
 @RequiredArgsConstructor
-public class HomePageViewModel_bookVisit {
+public class HomePageViewModel_bookAsignar {
 
     final HomePageViewModel homePageViewModel;
 
-    public Object act(PetOwner petOwner, Pet pet, LocalDateTime visitAt, String reason, boolean showVisit) {
-        Visit visit = wrapperFactory.wrapMixin(Pet_bookVisit.class, pet).act(visitAt, reason);
-        return showVisit ? visit : homePageViewModel;
+    public Object act(Plan plan, Afiliado afiliado, LocalDateTime asignarAt, String reason, boolean showVisit) {
+        Asignar asignar = wrapperFactory.wrapMixin(Afiliado_bookAsignar.class, afiliado).act(asignarAt, reason);
+        return showAsignar ? asignar : homePageViewModel;
     }
-    public List<PetOwner> autoComplete0Act(final String lastName) {
-        return petOwnerRepository.findByLastNameContaining(lastName);
+    public List<Plan> autoComplete0Act(final String nombre) {
+        return planRepository.findByNombreContaining(nombre);
     }
-    public List<Pet> choices1Act(PetOwner petOwner) {
-        if(petOwner == null) return Collections.emptyList();
-        return petRepository.findByPetOwner(petOwner);
+    public List<Afiliado> choices1Act(Plan plan) {
+        if(plan == null) return Collections.emptyList();
+        return afiliadoRepository.findByPlan(plan);
     }
-    public LocalDateTime default2Act(PetOwner petOwner, Pet pet) {
-        if(pet == null) return null;
-        return factoryService.mixin(Pet_bookVisit.class, pet).default0Act();
+    public LocalDateTime default2Act(Plan plan, Pet afiliado) {
+        if(afiliado == null) return null;
+        return factoryService.mixin(Afiliado_bookVisit.class, afiliado).default0Act();
     }
-    public String validate2Act(PetOwner petOwner, Pet pet, LocalDateTime visitAt){
-         return factoryService.mixin(Pet_bookVisit.class, pet).validate0Act(visitAt);
+    public String validate2Act(Plan plan, Pet afiliado, LocalDateTime asignarAt){
+         return factoryService.mixin(Afiliado_bookVisit.class, afiliado).validate0Act(asignarAt);
     }
 
-    @Inject PetRepository petRepository;
-    @Inject PetOwnerRepository petOwnerRepository;
+    @Inject AfiliadoRepository afiliadoRepository;
+    @Inject PlanRepository planRepository;
     @Inject WrapperFactory wrapperFactory;
     @Inject FactoryService factoryService;
 }

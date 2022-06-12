@@ -1,5 +1,5 @@
-petOwner
-name
+plan
+nombre
 #id
 #version
 

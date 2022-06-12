@@ -18,7 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import obsocial.modules.afiliados.dom.afiliado.Afiliado;
-import obsocial.modules.afiliados.dom.petowner.Plan;
+import obsocial.modules.afiliados.dom.plan.Plan;
 import obsocial.modules.asignar.dom.asignar.Asignar;
 
 @DomainObject(nature=Nature.VIEW_MODEL, logicalTypeName = "obsocial.AsignarPlusPlan")

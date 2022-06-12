@@ -4,10 +4,10 @@
         <mb3:menu>
             <mb3:named>Pet Owners</mb3:named>
             <mb3:section>
-                <mb3:serviceAction objectType="pets.PetOwners" id="create"/>
-                <mb3:serviceAction objectType="pets.PetOwners" id="findByLastName"/>
-                <mb3:serviceAction objectType="pets.PetOwners" id="findByLastNameLike"/>
-                <mb3:serviceAction objectType="pets.PetOwners" id="listAll"/>
+                <mb3:serviceAction objectType="planes.Planes" id="create"/>
+                <mb3:serviceAction objectType="planes.Planes" id="findByLastName"/>
+                <mb3:serviceAction objectType="planes.Planes" id="findByLastNameLike"/>
+                <mb3:serviceAction objectType="planes.Planes" id="listAll"/>
             </mb3:section>
         </mb3:menu>
         <mb3:menu unreferencedActions="true">

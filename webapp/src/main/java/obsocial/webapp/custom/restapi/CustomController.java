@@ -1,4 +1,4 @@
-package petclinic.webapp.custom.restapi;
+package obsocial.webapp.custom.restapi;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,8 +17,8 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 
 import lombok.RequiredArgsConstructor;
 
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.pets.dom.petowner.PetOwners;
+import obsocial.modules.afiliado.dom.plan.Plan;
+import obsocial.modules.afiliado.dom.plan.Planes;
 
 @RestController
 @RequiredArgsConstructor(onConstructor_ = {@Inject})
@@ -26,12 +26,12 @@ class CustomController {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-    private final PetOwners petOwners;
+    private final Planes planes;
 
     @GetMapping("/custom/simpleObjects")
-    List<PetOwner> all() {
-        return call("sven", petOwners::listAll)
-                .orElse(Collections.<PetOwner>emptyList());
+    List<Plan> all() {
+        return call("sven", planes::listAll)
+                .orElse(Collections.<Plan>emptyList());
     }
 
     private <T> Optional<T> call(

@@ -69,9 +69,9 @@ isis:
   testing:
     fixtures:
       fixture-scripts-specification:
-        context-class: petclinic.webapp.application.fixture.scenarios.PetClinicDemo
-        run-script-default: petclinic.webapp.application.fixture.scenarios.PetClinicDemo
-        recreate: petclinic.webapp.application.fixture.scenarios.PetClinicDemo
+        context-class: obsocial.webapp.application.fixture.scenarios.ObsocialDemo
+        run-script-default: obsocial.webapp.application.fixture.scenarios.ObsocialDemo
+        recreate: obsocial.webapp.application.fixture.scenarios.ObsocialDemo
         non-persisted-objects-strategy: persist
         multiple-execution-strategy: execute
 
