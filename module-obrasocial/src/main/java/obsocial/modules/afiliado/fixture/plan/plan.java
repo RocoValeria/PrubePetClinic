@@ -1,30 +1,24 @@
-package petclinic.modules.pets.fixture.petowner;
+package obsocial.modules.afiliado.fixture.plan;
 
 import org.apache.isis.applib.services.registry.ServiceRegistry;
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript;
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
-import petclinic.modules.pets.dom.petowner.PetOwner;
-import petclinic.modules.pets.dom.petowner.PetOwners;
+import obsocial.modules.afiliado.dom.petowner.Plan;
+import obsocial.modules.afiliado.dom.petowner.Planes;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum PetOwner_persona
-implements PersonaWithBuilderScript<PetOwnerBuilder>, PersonaWithFinder<PetOwner> {
+public enum plan
+implements PlanWithBuilderScript<PlanBuilder>, PlanWithFinder<Plan> {
 
-    JONES("Jones"),
-    FARRELL("Farrell"),
-    UNDERHILL("Underhill"),
-    FORD("Ford"),
-    YOUNGS("Youngs"),
-    MAY("May"),
-    GENGE("Genge"),
-    EWELS("Ewels"),
-    VUNIPOLA("Vunipola"),
-    ITOJE("Itoje");
+    Oro("Farmacia 70%"),
+    Plata("Farmacia 50%"),
+    Bronce("Farmacia 30%");
+
 
     @Getter
     private final String name;
