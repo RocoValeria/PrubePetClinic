@@ -1,4 +1,4 @@
 isis:
   persistence:
     schema:
-      auto-create-schemas: "pets"
+      auto-create-schemas: "afiliados"

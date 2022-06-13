@@ -1,4 +1,4 @@
-package petclinic.webapp.integtests;
+package obsocial.webapp.integtests;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,8 +16,8 @@ import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 
-import petclinic.modules.pets.PetsModule;
-import petclinic.webapp.application.ApplicationModule;
+import obsocial.modules.afiliados.AfiliadosModule;
+import obsocial.webapp.application.ApplicationModule;
 
 @SpringBootTest(
     classes = {
@@ -30,7 +30,7 @@ import petclinic.webapp.application.ApplicationModule;
 public abstract class WebAppIntegTestAbstract extends IsisIntegrationTestAbstract {
 
     /**
-     * Compared to the production app manifest <code>petclinic.webapp.AppManifest</code>,
+     * Compared to the production app manifest <code>obsocial.webapp.AppManifest</code>,
      * here we in effect disable security checks, and we exclude any web/UI modules.
      */
     @SpringBootConfiguration

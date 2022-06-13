@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="PetClinicApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-    <module name="petclinic-webapp" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="petclinic.webapp.PetClinicApp" />
+  <configuration default="false" name="ObsocialApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="obsocial-webapp" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="obsocial.webapp.ObsocialApp" />
     <option name="ACTIVE_PROFILES" value="dev,custom" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <option name="SHORTEN_COMMAND_LINE" value="NONE" />

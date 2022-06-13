@@ -1,4 +1,4 @@
-package petclinic.webapp.integtests.metamodel;
+package obsocial.webapp.integtests.metamodel;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRest
 
 import lombok.val;
 
-import petclinic.webapp.integtests.WebAppIntegTestAbstract;
+import obsocial.webapp.integtests.WebAppIntegTestAbstract;
 
 @Import({
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class
